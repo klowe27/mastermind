@@ -1,4 +1,4 @@
-# Mastermind_
+# Mastermind
 
 #### A web app for a code breaking game, 11.08.2018
 
