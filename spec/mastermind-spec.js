@@ -35,4 +35,11 @@ describe('Mastermind', function() {
     });
   });
 
+  describe('guess', function() {
+    it('should store a player\'s color guess in the playerGuess array', function() {
+      mastermindMedium.guess("red");
+      expect(mastermindMedium.playerGuess).toEqual(["red"]);
+    });
+  });
+
 });
