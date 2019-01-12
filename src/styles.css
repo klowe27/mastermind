@@ -1,28 +1,16 @@
-@font-face {
-    font-family: 'metroregular';
-    src: url('Metro-webfont.eot');
-    src: url('Metro-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Metro-webfont.woff') format('woff'),
-         url('Metro-webfont.ttf') format('truetype'),
-         url('Metro-webfont.svg#metroregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 h1 {
   text-align: center;
-  font-family: metroregular;
+  font-family: 'Orbitron', sans-serif;
   font-size: 75px;
   color: white;
-  margin-botton: 20px;
+  margin-bottom: 20px;
 }
 
 .marginTop {
   margin-top: 25%;
 }
 
-.difficultyButtons{
+.difficulty {
   margin-top: 0px;
   text-align: center;
 }
@@ -31,15 +19,12 @@ body {
   background-color: black;
 }
 
-#start-screen {
-  margin-top: 25%;
-  text-align: center;
-}
 #game {
   display: none;
 }
+
 #timer {
-  font-family: metroregular;
+  font-family: 'Orbitron', sans-serif;
   color: 	#A9A9A9;
   font-size: 25px;
   text-align: left;
@@ -53,18 +38,9 @@ body {
   border-radius: 20px;
   width: 600px;
 }
-.stagingButton{
+
+.stagingButton {
   width: 100px;
-  font-size: 20px;
-  margin: 10px;
-  margin-top: 20px;
-  padding: 6px;
-  border: none;
-  background-color: #CBA72D;
-  box-shadow: 2px 2px black;
-}
-.stagingButtonV2{
-  width: 150px;
   font-size: 20px;
   margin: 10px;
   margin-top: 20px;
@@ -77,21 +53,26 @@ body {
 #buttons{
   margin-top: 20px;
 }
+
 #red {
   background-color: red;
 }
+
 #green {
   background-color: green;
 }
 #blue {
   background-color: blue;
 }
+
 #yellow {
   background-color: yellow;
 }
+
 #purple {
   background-color: purple;
 }
+
 #orange {
   background-color: orange;
 }
@@ -121,41 +102,14 @@ body {
   background-color: #CBA72D;
 }
 
-#lose-modal{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#win-modal{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modal-header{
-  background-color: ;
-}
-.modal-body{
-  background-color: ;
-}
-.modal-footer{
-  background-color: ;
-}
-
-
 .rowNumber {
   display: inline-block;
-  font-family: metroregular;
-  color: 	#A9A9A9;
+  font-family: 'Orbitron', sans-serif;
+  color: #A9A9A9;
   font-size: 25px;
   margin-left: 10px;
   margin-top: 17px;
 }
-
 
 #pegResult {
   display: inline-block;
@@ -168,20 +122,9 @@ body {
   width: 85px;
 }
 
-.pegResult {
-  display: inline-block;
-  margin-left: 15px;
-  margin-bottom: 2px;
-  background-color: #BEBEBE;
-  padding: 5px;
-  padding-top: 10px;
-  border-radius: 2px;
-  width: 85px;
-}
-
 #stagingBoard {
   margin-top: 20px;
-  background-color: 		#BEBEBE;
+  background-color: #BEBEBE;
   padding: 20px;
   border-radius: 10px;
 }
@@ -196,6 +139,7 @@ body {
   box-shadow: 1px 1px black;
   text-align: right;
 }
+
 .pegCircle {
   background-color: #484848;
   height: 15px;
@@ -215,44 +159,24 @@ body {
 }
 
 
-#board {
-  background-color: brown;
-  text-align: center;
-  display: none;
-}
-.close-modal{
-  float: right;
-}
-#alert-modal{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#info-modal{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.8em;
-}
-
-#info-modal h2{
-text-align: center;
-}
-#settings-modal{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#settings-icon {
-  width: 50px;
-  display: block;
-}
 #info-icon {
   width: 50px;
+}
+
+#alert {
+  display: none;
+  position: fixed;
+  top: 30px;
+  left: 45%;
+  width: 300px;
+  background-color: red;
+}
+
+#rules {
+  display: none;
+  position: fixed;
+  left: -300px;
+  bottom: 0px;
+  width: 300px;
+  background-color: gray;
 }

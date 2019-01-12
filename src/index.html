@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
+    <title>Mastermind</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="marginTop">Mast<span id="cheat">e</span>rmind</h1>
+
+      <div class="difficulty">
+        <h3>Choose Difficulty:</h3>
+        <button type="button" class="startGame" id="easy">Easy</button>
+        <button type="button" class="startGame" id="medium">Medium</button>
+        <button type="button" class="startGame" id="hard">Hard</button>
+      </div>
+
+      <div id="game">
+        <div class="gameBoard">
+
+          <div class="row">
+            <div class="col-md-10" id="boardRows"></div>
+            <div class="col-md-2">
+              <div class="row">
+                <div id="timer">1:00</div>
+              </div>
+              <div class="row" class="button-picker" id="colorGuess">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div  id="stagingBoard"></div>
+              <button class="stagingButton" type="button" id="clearGuess">Clear</button>
+              <button class="stagingButton" type="button" id="submitGuess">Submit</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="rules">
+        <p>Welcome to Mastermind!</p>
+        <p>In this game the computer has generated a 4 color pattern that you have to guess in the amount of turns given.</p>
+        <p>Once you have made your first guess the pegs in the right hand box should fill with one of these 3 colors:</p>
+        <ul>
+          <li>Gold Peg: You have an exact match (correct color and postion)</li>
+          <li>White w/ Green Outline: You have a color match (color but not position)</li>
+          <li>Gray: Your guess is 100% wrong. Yikes.</li>
+        </ul>
+        <p>Win: You guess the correct parttern before the turn limit.</p>
+        <p>Lose: You hit the guess limit before being able to guess the pattern correctly.</p>
+      </div>
+
+      <div id="alert">
+        <h2>You must select 4 choices to make a guess!</h2>
+      </div>
+
+      <img id="info-icon" src="img/info2.png" alt="info">
+
+    </div>
+  </body>
+</html>
