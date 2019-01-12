@@ -6,6 +6,7 @@ $(document).ready(function(){
   $(".difficulty").on("click", "button", function(){
     const difficulty = this.id;
     mastermind = new Mastermind(difficulty);
+    mastermind.setDifficulty();
     startGame(mastermind);
   });
 

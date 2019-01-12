@@ -16,24 +16,35 @@ describe('Mastermind', function() {
       expect(mastermindEasy.difficulty).toEqual("easy");
       expect(mastermindEasy.rows).toEqual(11);
       expect(mastermindEasy.seconds).toEqual(120);
-      expect(mastermindEasy.colorOptionNumber).toEqual(4);
+      expect(mastermindEasy.colorOptionNumber).toEqual(6);
+      expect(mastermindEasy.masterCode.length).toEqual(4);
       expect(mastermindEasy.playerGuess).toEqual([]);
       expect(mastermindEasy.tempPlayerGuess).toEqual([]);
-      expect(mastermindEasy.tempMasterConfig).toEqual([]);
+      expect(mastermindEasy.tempMasterCode).toEqual([]);
       expect(mastermindEasy.blackPeg).toEqual(0);
       expect(mastermindEasy.whitePeg).toEqual(0);
       expect(mastermindEasy.currentTurn).toEqual(0);
       expect(mastermindEasy.winStatus).toEqual("");
+    });
+  });
 
+  describe('setDifficulty', function() {
+    it('should update a player\'s properties based on difficulty', function() {
+      mastermindEasy.setDifficulty();
+      expect(mastermindEasy.colorOptionNumber).toEqual(4);
+
+      mastermindMedium.setDifficulty();
       expect(mastermindMedium.difficulty).toEqual("medium");
       expect(mastermindMedium.rows).toEqual(11);
       expect(mastermindMedium.colorOptionNumber).toEqual(6);
 
+      mastermindHard.setDifficulty();
       expect(mastermindHard.difficulty).toEqual("hard");
       expect(mastermindHard.rows).toEqual(7);
       expect(mastermindHard.colorOptionNumber).toEqual(6);
     });
   });
+
 
   describe('guess', function() {
     it('should store a player\'s color guess in the playerGuess array', function() {
@@ -49,5 +60,15 @@ describe('Mastermind', function() {
       expect(mastermindMedium.playerGuess).toEqual([]);
     });
   });
+
+  // describe('cheat', function() {
+  //   it('should add the masterCode to the playerGuess', function() {
+  //     mastermindMedium.cheat();
+  //     mastermindMedium.cheat();
+  //     mastermindMedium.cheat();
+  //     mastermindMedium.cheat();
+  //     expect(mastermindMedium.playerGuess).toEqual(mastermindMedium.masterCode);
+  //   });
+  // });
 
 });
