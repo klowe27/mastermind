@@ -42,4 +42,12 @@ describe('Mastermind', function() {
     });
   });
 
+  describe('clearGuess', function() {
+    it('should empty the playerGuess array', function() {
+      mastermindMedium.guess("red");
+      mastermindMedium.clearGuess("red");
+      expect(mastermindMedium.playerGuess).toEqual([]);
+    });
+  });
+
 });
