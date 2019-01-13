@@ -161,6 +161,9 @@ body {
 
 #info-icon {
   width: 50px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
 }
 
 #alert {
@@ -175,8 +178,16 @@ body {
 #rules {
   display: none;
   position: fixed;
-  left: -300px;
-  bottom: 0px;
+  left: 300px;
+  bottom: 20px;
   width: 300px;
   background-color: gray;
+}
+
+#lose {
+  display: none;
+}
+
+#win {
+  display: none;
 }

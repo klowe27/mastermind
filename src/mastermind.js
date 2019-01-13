@@ -113,5 +113,4 @@ export class Mastermind {
   randomNumber(max) {
     return (Math.floor((Math.random() * max)));
   }
-
 }

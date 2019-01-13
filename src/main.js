@@ -1,40 +1,45 @@
 import { startGame, guessOnBoard, clearGuessOnBoard, submitGuessOnBoard, cheatOnBoard, winCheckOnBoard } from './user-interface-logic.js'
 import { Mastermind } from './mastermind.js'
+import './styles.css';
+import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function(){
   let mastermind;
-  $(".difficulty").on("click", "button", function(){
+  $('.difficulty').on('click', 'button', function(){
     const difficulty = this.id;
     mastermind = new Mastermind(difficulty);
     mastermind.setDifficulty();
     startGame(mastermind);
   });
 
-  $("#colorGuess").on("click", "button", function(){
+  $('#colorGuess').on('click', 'button', function(){
     mastermind.guess(this.value);
     guessOnBoard(this.value, mastermind.playerGuess.length);
   });
 
-  $("#clearGuess").click(function(){
+  $('#clearGuess').click(function(){
     clearGuessOnBoard();
     mastermind.clearGuess();
   });
 
-  $("#submitGuess").click(function(){
-    submitGuessOnBoard(mastermind);
-    mastermind.submitGuess();
-    winCheckOnBoard();
+  $('#submitGuess').click(function(){
+    if (mastermind.playerGuess.length < 4){
+      $('#alert').slideDown(2000).slideUp(2000);
+    } else {
+      submitGuessOnBoard(mastermind);
+      mastermind.submitGuess();
+      winCheckOnBoard(mastermind);
+    }
   });
 
-  $("#cheat").click(function(event){
-    event.preventDefault();
+  $('#cheat').click(function(){
     cheatOnBoard(mastermind);
     mastermind.cheat();
-
   });
 
-  $("#info-icon").hover(function(){
-    $("#rules").slideUp();
+  $('#info-icon').hover(function(){
+    $('#rules').slideUp();
   });
-
 });
