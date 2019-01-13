@@ -80,8 +80,19 @@ describe('Mastermind', function() {
       expect(mastermindMedium.blackPeg).toEqual(0);
       expect(mastermindMedium.whitePeg).toEqual(0);
       expect(mastermindMedium.currentTurn).toEqual(1);
-
     });
   });
 
+  describe('winCheck', function() {
+    it('checks if a user has won or lost', function() {
+      mastermindMedium.blackPeg = 4;
+      mastermindMedium.winCheck();
+      expect(mastermindMedium.winStatus).toEqual(true);
+
+      mastermindMedium.blackPeg = 0;
+      mastermindMedium.currentTurn = 11;
+      mastermindMedium.winCheck();
+      expect(mastermindMedium.winStatus).toEqual(false);
+    });
+  });
 });
