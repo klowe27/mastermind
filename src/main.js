@@ -1,4 +1,4 @@
-import { startGame, guessOnBoard, clearGuessOnBoard, submitGuessOnBoard, cheatOnBoard, winCheckOnBoard } from './user-interface-logic.js'
+import { startGame, guessOnBoard, clearGuessOnBoard, submitGuessOnBoard, cheatOnBoard, winCheckOnBoard, createStars,  } from './user-interface-logic.js'
 import { Mastermind } from './mastermind.js'
 import './styles.css';
 import $ from 'jquery';
@@ -6,6 +6,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function(){
+  createStars();
   let mastermind;
   $('.difficulty').on('click', 'button', function(){
     const difficulty = this.id;
@@ -39,7 +40,7 @@ $(document).ready(function(){
     mastermind.cheat();
   });
 
-  $('#info-icon').hover(function(){
-    $('#rules').slideUp();
+  $('#info').hover(function(){
+    $('#rules').toggle(300);
   });
 });

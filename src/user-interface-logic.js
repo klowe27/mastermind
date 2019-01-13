@@ -3,10 +3,9 @@ import $ from 'jquery';
 export function startGame(mastermind) {
   $(".difficultyButtons").hide();
   $("h1").removeClass("marginTop");
-  $('#buildRows').empty();
-  $('#stagingBoard').empty();
-  $('#colorGuess').empty();
-  $("#timer").hide().text('1:00');
+  // $('#buildRows').empty();
+  // $('#stagingBoard').empty();
+  // $('#colorGuess').empty();
   $("#cheat").css("color", "white");
   $("#game").slideDown(1500);
   setDifficulty(mastermind)
@@ -59,7 +58,7 @@ function gameTimer(mastermind) {
   let seconds = mastermind.seconds;
   let gametimer = setInterval(function() {
     seconds -= .01;
-    $("#timer").text(seconds);
+    $("#timer").text(seconds.toFixed());
     (seconds < 60) ? $("#timer").css("color", "red") : null;
     (mastermind.winStatus === true) ? clearInterval(gametimer) : null;
     if(seconds <= 0) {
@@ -70,7 +69,7 @@ function gameTimer(mastermind) {
         $('#timer').text(0.00);
       }
     }
-  }, 1000);
+  }, 10);
 }
 
 export function guessOnBoard(color, guessLength){
@@ -126,4 +125,20 @@ function winCheckOnBoard(mastermind) {
   } else if (mastermind.winStatus == false) {
     $('#lose').show();
   }
+}
+
+export function createStars() {
+  const height = $(window).height();
+  const width = $(window).width();
+  for (let i = 0; i < 350; i++) {
+    $('body').append(`<span class="star" style="left: ${randomNumber(width)}px; bottom: ${randomNumber(height)}px; background-color: rgb(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)});"></span>`);
+  }
+  for (let i = 0; i < 1000; i++) {
+    $('.star:odd').fadeIn(4000).fadeOut(2000);
+    $('.star:even').fadeOut(6000).fadeIn(3000);
+  }
+}
+
+function randomNumber(max) {
+  return Math.floor(Math.random()*max+1)
 }
