@@ -45,7 +45,6 @@ describe('Mastermind', function() {
     });
   });
 
-
   describe('guess', function() {
     it('should store a player\'s color guess in the playerGuess array', function() {
       mastermindMedium.guess("red");
@@ -68,6 +67,20 @@ describe('Mastermind', function() {
       mastermindMedium.cheat();
       mastermindMedium.cheat();
       expect(mastermindMedium.playerGuess).toEqual(mastermindMedium.masterCode);
+    });
+  });
+
+  describe('endTurn', function() {
+    it('should clear all turn properties and ++ the currentTurn', function() {
+      mastermindMedium.playerGuess = ["red", "green", "yellow", "purple"];
+      mastermindMedium.submitGuess();
+      expect(mastermindMedium.playerGuess).toEqual([]);
+      expect(mastermindMedium.tempPlayerGuess).toEqual([]);
+      expect(mastermindMedium.tempMasterCode).toEqual([]);
+      expect(mastermindMedium.blackPeg).toEqual(0);
+      expect(mastermindMedium.whitePeg).toEqual(0);
+      expect(mastermindMedium.currentTurn).toEqual(1);
+
     });
   });
 
