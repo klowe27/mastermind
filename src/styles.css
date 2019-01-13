@@ -47,7 +47,7 @@ body h3 {
 
 #game {
   display: none;
-  opacity: .75;
+  opacity: .82;
 }
 
 #timer {
@@ -64,17 +64,6 @@ body h3 {
   padding: 40px;
   border-radius: 10px;
   width: 600px;
-}
-
-.stagingButton {
-  width: 100px;
-  font-size: 20px;
-  margin: 10px;
-  margin-top: 20px;
-  padding: 6px;
-  border: none;
-  background-color: #CBA72D;
-  box-shadow: 2px 2px black;
 }
 
 #buttons{
@@ -105,15 +94,20 @@ body h3 {
 }
 
 .colors{
-  border: 1px solid darkgray;
+  /* border: 1px solid darkgray; */
   margin-top: 10px;
-  box-shadow: 1px 1px gray;
+  /* box-shadow: 1px 1px gray; */
   height: 50px;
   width: 50px;
   border-radius: 100%;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
-.startGame {
+.colors:hover {
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .8);
+}
+
+.gameButton {
   display: inline-block;
   background-color: #ff6c37;
   font-size: 20px;
@@ -125,7 +119,7 @@ body h3 {
   opacity: .8;
 }
 
-.startGame:hover {
+.gameButton:hover {
   background-color: gray;
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
@@ -139,39 +133,53 @@ body h3 {
   margin-top: 17px;
 }
 
-#pegResult {
-  /* display: inline-block; */
-  margin-left: 15px;
-  margin-bottom: 2px;
-  background-color: #BEBEBE;
-  padding: 5px;
-  padding-top: 10px;
-  border-radius: 2px;
-  width: 100px;
-}
-
 #stagingBoard {
   margin-top: 20px;
-  background-color: #BEBEBE;
+  background-color: #E0E0E0;
+  opacity: .8;
   padding: 20px;
   border-radius: 10px;
 }
 
+.stagingButton {
+  width: 95px;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 3px;
+}
+
+.stagingButton:hover {
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .8);
+}
+
 .emptyCircle {
   margin: 5px;
-  background-color: gray;
+  background-color: #B8B8B8;
   height: 50px;
   width: 50px;
   border-radius: 100%;
   display: inline-block;
-  box-shadow: 1px 1px black;
+  box-shadow: 1px 1px	#686868;
   text-align: right;
 }
 
+#pegResult {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  background-color: #E0E0E0;
+  opacity: .9;
+  padding: 3px;
+  border-radius: 2px;
+  width: 80px;
+}
+
 .pegCircle {
-  background-color: #484848;
-  height: 15px;
-  width: 15px;
+  background-color: #B8B8B8;
+  height: 12px;
+  width: 12px;
   border-radius: 100%;
   display: inline-block;
 }

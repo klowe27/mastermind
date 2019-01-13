@@ -1,3 +1,5 @@
+import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame } from './user-interface-logic.js'
+
 export class Mastermind {
   constructor(difficulty, rows = 11, seconds = 120, colorOptionNumber = 6){
     this.difficulty = difficulty;
@@ -48,25 +50,31 @@ export class Mastermind {
         this.colorOptionNumber = 6;
         break;
     }
+    startGame(this);
   }
 
   guess(color) {
     this.playerGuess.push(color);
+    guessOnBoard(color, this);
+
   }
 
   submitGuess() {
-    this.winCheck();
     this.exactMatch();
     this.colorMatch();
+    this.winCheck();
+    submitGuessOnBoard(this);
     this.endTurn();
   }
 
   clearGuess(){
     this.playerGuess = [];
+    clearGuessOnBoard(this);
   }
 
   cheat() {
     this.playerGuess = this.masterCode;
+    cheatOnBoard(this);
   }
 
   endTurn() {

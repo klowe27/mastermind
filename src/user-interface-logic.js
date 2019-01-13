@@ -24,8 +24,8 @@ function setDifficulty(mastermind) {
 }
 
 function buildRows(mastermind) {
-  for (let i = mastermind.rows; i >= 0; i--) {
-    let htlmToInsert = `<div class='row'><div class='col-md-2'><div class='rowNumber'>${(i+1)}</div></div>`;
+  for (let i = mastermind.rows-1; i >= 0; i--) {
+    let htlmToInsert = `<div class='row'><div class='col-md-2'><div class='rowNumber'>${i+1}</div></div>`;
     for (let j = 0; j < 4; j++) {
       htlmToInsert += `<div id='${i}-${j}'class='emptyCircle'></div>`;
     }
@@ -72,9 +72,9 @@ function gameTimer(mastermind) {
   }, 10);
 }
 
-export function guessOnBoard(color, guessLength){
-  $(`#stagingBoard-${guessLength}`).css('background-color', color);
-  (guessLength > 4) ? disableGuess() : null;
+export function guessOnBoard(color, mastermind){
+  $(`#stagingBoard-${mastermind.playerGuess.length}`).css('background-color', color);
+  (mastermind.playerGuess.length > 4) ? disableGuess() : null;
 }
 
 export function clearGuessOnBoard(){
@@ -86,19 +86,19 @@ export function clearGuessOnBoard(){
 }
 
 export function submitGuessOnBoard(mastermind){
-  disableGuess(mastermind);
-  for (let i= 0; i <mastermind.playerGuess.length; i++){
+  for (let i= 0; i < 4; i++){
     $(`#${mastermind.currentTurn}-${i}`).css("background-color", mastermind.playerGuess[i]);
   }
-  enableGuess()
   clearStagingBoard();
   updatePegs(mastermind);
+  winCheckOnBoard(mastermind)
 }
 
 export function cheatOnBoard(mastermind) {
-  $(`#stagingBoard-${mastermind.playerGuess.length}`).css("background-color", mastermind.masterConfig[(mastermind.playerGuess.length)]);
-  disableGuess();
   $("#cheat").css("color", "#CBA72D");
+  for (let i = 1; i <= 4; i++ ) {
+    $(`#stagingBoard-${i}`).css("background-color", mastermind.masterCode[i-1]);
+  }
 }
 
 function clearStagingBoard() {
@@ -108,10 +108,10 @@ function clearStagingBoard() {
 }
 
 function updatePegs(mastermind) {
-  for (let i = 0; i < mastermind.tempBlackPeg; i++){
+  for (let i = 0; i < mastermind.blackPeg; i++){
     $(`#peg${mastermind.currentTurn}-${i}`).addClass("blackPeg");
   }
-  for (let i = mastermind.tempBlackPeg; i < mastermind.tempWhitePeg + mastermind.tempBlackPeg; i ++) {
+  for (let i = mastermind.blackPeg; i < mastermind.whitePeg + mastermind.blackPeg; i ++) {
     $(`#peg${mastermind.currentTurn}-${i}`).addClass("whitePeg");
   }
 }

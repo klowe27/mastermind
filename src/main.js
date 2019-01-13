@@ -1,4 +1,4 @@
-import { startGame, guessOnBoard, clearGuessOnBoard, submitGuessOnBoard, cheatOnBoard, winCheckOnBoard, createStars,  } from './user-interface-logic.js'
+import { createStars,  } from './user-interface-logic.js'
 import { Mastermind } from './mastermind.js'
 import './styles.css';
 import $ from 'jquery';
@@ -13,16 +13,13 @@ $(document).ready(function(){
     const difficulty = this.id;
     mastermind = new Mastermind(difficulty);
     mastermind.setDifficulty();
-    startGame(mastermind);
   });
 
   $('#colorGuess').on('click', 'button', function(){
     mastermind.guess(this.value);
-    guessOnBoard(this.value, mastermind.playerGuess.length);
   });
 
   $('#clearGuess').click(function(){
-    clearGuessOnBoard();
     mastermind.clearGuess();
   });
 
@@ -30,14 +27,11 @@ $(document).ready(function(){
     if (mastermind.playerGuess.length < 4){
       $('#alert').slideDown(3000).slideUp(1000);
     } else {
-      submitGuessOnBoard(mastermind);
       mastermind.submitGuess();
-      winCheckOnBoard(mastermind);
     }
   });
 
   $('#cheat').click(function(){
-    cheatOnBoard(mastermind);
     mastermind.cheat();
   });
 

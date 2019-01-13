@@ -10,9 +10,9 @@
       <h1 class="marginTop">Mast<span id="cheat">e</span>rmind</h1>
 
       <div class="difficulty">
-        <button type="button" class="startGame" id="easy">Easy</button>
-        <button type="button" class="startGame" id="medium">Medium</button>
-        <button type="button" class="startGame" id="hard">Hard</button>
+        <button type="button" class="gameButton" id="easy">Easy</button>
+        <button type="button" class="gameButton" id="medium">Medium</button>
+        <button type="button" class="gameButton" id="hard">Hard</button>
       </div>
 
       <div id="game">
@@ -31,8 +31,8 @@
 
           <div class="row">
               <div  id="stagingBoard"></div>
-              <button class="stagingButton" type="button" id="clearGuess">Clear</button>
-              <button class="stagingButton" type="button" id="submitGuess">Submit</button>
+              <button class="gameButton stagingButton" type="button" id="clearGuess">Clear</button>
+              <button class="gameButton stagingButton" type="button" id="submitGuess">Submit</button>
           </div>
 
         </div>
@@ -41,14 +41,14 @@
       <div id="rules">
         <h2>Welcome to Mastermind!</h2>
         <p>In this game the computer has generated a 4 color pattern that you have to guess in the amount of turns given.</p>
-        <p>Once you have made your first guess the pegs in the right hand box should fill with one of these 3 colors:</p>
+        <p>Once you have made your first guess, the pegs in the right hand box fill with one of 3 colors:</p>
         <ul>
           <li><strong>Gold Peg:</strong> You have an exact match (correct color and postion).</li>
           <li><strong>White w/ Green Outline:</strong> You have a color match (color but not position).</li>
           <li><strong>Gray:</strong> Your guess is 100% wrong. Yikes.</li>
         </ul>
         <p><strong>Win:</strong> You guess the correct parttern before the turn limit.</p>
-        <p><strong>Lose:</strong> You hit the guess limit before being able to guess the pattern correctly.</p>
+        <p><strong>Lose:</strong> You hit the guess limit before guessing the pattern correctly.</p>
       </div>
 
       <div id="alert">
