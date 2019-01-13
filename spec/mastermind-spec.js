@@ -61,14 +61,14 @@ describe('Mastermind', function() {
     });
   });
 
-  // describe('cheat', function() {
-  //   it('should add the masterCode to the playerGuess', function() {
-  //     mastermindMedium.cheat();
-  //     mastermindMedium.cheat();
-  //     mastermindMedium.cheat();
-  //     mastermindMedium.cheat();
-  //     expect(mastermindMedium.playerGuess).toEqual(mastermindMedium.masterCode);
-  //   });
-  // });
+  describe('cheat', function() {
+    it('should add the masterCode to the playerGuess', function() {
+      mastermindMedium.cheat();
+      mastermindMedium.cheat();
+      mastermindMedium.cheat();
+      mastermindMedium.cheat();
+      expect(mastermindMedium.playerGuess).toEqual(mastermindMedium.masterCode);
+    });
+  });
 
 });
