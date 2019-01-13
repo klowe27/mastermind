@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export function startGame(mastermind) {
-  $(".difficultyButtons").hide();
+  $(".difficulty").hide();
   $("h1").removeClass("marginTop");
   // $('#buildRows').empty();
   // $('#stagingBoard').empty();
@@ -16,7 +16,7 @@ export function startGame(mastermind) {
 
 function setDifficulty(mastermind) {
   gameTimer(mastermind);
-  if (this.difficulty === "easy" || this.difficulty === "medium") {
+  if (mastermind.difficulty === "easy" || mastermind.difficulty === "medium") {
     $("#timer").hide();
   } else {
     gameTimer(mastermind);
@@ -25,11 +25,11 @@ function setDifficulty(mastermind) {
 
 function buildRows(mastermind) {
   for (let i = mastermind.rows; i >= 0; i--) {
-    let htlmToInsert = `<div class='row'><div class='col-md-1'><div class='rowNumber'>${(i+1)}</div></div>`;
+    let htlmToInsert = `<div class='row'><div class='col-md-2'><div class='rowNumber'>${(i+1)}</div></div>`;
     for (let j = 0; j < 4; j++) {
       htlmToInsert += `<div id='${i}-${j}'class='emptyCircle'></div>`;
     }
-    htlmToInsert += `<div id='pegResult' class='row'><div class='col-md-1'>`
+    htlmToInsert += `<div id='pegResult'><div class='col-md-1'>`
     for (let j = 0; j < 4; j++) {
       htlmToInsert += `<div id='peg${i}-${j}'class='pegCircle'></div>`;
     }
@@ -39,7 +39,7 @@ function buildRows(mastermind) {
 }
 
 function buildstagingBoard() {
-  for (let i = 0; i <=4; i++) {
+  for (let i = 1; i <=4; i++) {
     $('#stagingBoard').append(`<div id="stagingBoard-${i}"class="emptyCircle"></div>`);
   }
 }
@@ -58,7 +58,7 @@ function gameTimer(mastermind) {
   let seconds = mastermind.seconds;
   let gametimer = setInterval(function() {
     seconds -= .01;
-    $("#timer").text(seconds.toFixed());
+    $("#timer").text(seconds.toFixed(1));
     (seconds < 60) ? $("#timer").css("color", "red") : null;
     (mastermind.winStatus === true) ? clearInterval(gametimer) : null;
     if(seconds <= 0) {
@@ -74,7 +74,7 @@ function gameTimer(mastermind) {
 
 export function guessOnBoard(color, guessLength){
   $(`#stagingBoard-${guessLength}`).css('background-color', color);
-  (guessLength >= 3) ? disableGuess() : null;
+  (guessLength > 4) ? disableGuess() : null;
 }
 
 export function clearGuessOnBoard(){
@@ -90,6 +90,7 @@ export function submitGuessOnBoard(mastermind){
   for (let i= 0; i <mastermind.playerGuess.length; i++){
     $(`#${mastermind.currentTurn}-${i}`).css("background-color", mastermind.playerGuess[i]);
   }
+  enableGuess()
   clearStagingBoard();
   updatePegs(mastermind);
 }
@@ -101,7 +102,7 @@ export function cheatOnBoard(mastermind) {
 }
 
 function clearStagingBoard() {
-  for (let i =0; i < 4; i ++){
+  for (let i = 1; i <= 4; i ++){
     $(`#stagingBoard-${i}`).css("background-color", "gray");
   }
 }
@@ -113,6 +114,10 @@ function updatePegs(mastermind) {
   for (let i = mastermind.tempBlackPeg; i < mastermind.tempWhitePeg + mastermind.tempBlackPeg; i ++) {
     $(`#peg${mastermind.currentTurn}-${i}`).addClass("whitePeg");
   }
+}
+
+function enableGuess() {
+  $("button.colors").prop("disabled",false)
 }
 
 function disableGuess() {

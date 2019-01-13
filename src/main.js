@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function(){
   createStars();
+  $('#info').fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);
   let mastermind;
   $('.difficulty').on('click', 'button', function(){
     const difficulty = this.id;
@@ -27,7 +28,7 @@ $(document).ready(function(){
 
   $('#submitGuess').click(function(){
     if (mastermind.playerGuess.length < 4){
-      $('#alert').slideDown(2000).slideUp(2000);
+      $('#alert').slideDown(3000).slideUp(1000);
     } else {
       submitGuessOnBoard(mastermind);
       mastermind.submitGuess();
