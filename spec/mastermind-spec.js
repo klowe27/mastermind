@@ -84,7 +84,7 @@ describe('Mastermind', function() {
   });
 
   describe('winCheck', function() {
-    it('checks if a user has won or lost', function() {
+    it('should check if a user has won or lost', function() {
       mastermindMedium.blackPeg = 4;
       mastermindMedium.winCheck();
       expect(mastermindMedium.winStatus).toEqual(true);
@@ -93,6 +93,17 @@ describe('Mastermind', function() {
       mastermindMedium.currentTurn = 11;
       mastermindMedium.winCheck();
       expect(mastermindMedium.winStatus).toEqual(false);
+    });
+  });
+
+  describe('exactMatch and colorMatch', function() {
+    it('should compare playerGuess and masterCode for exact matches and color matches', function() {
+      mastermindMedium.playerGuess = ["green", "green", "red", "purple"];
+      mastermindMedium.masterCode = ["green", "purple", "purple", "red"];
+      mastermindMedium.exactMatch();
+      mastermindMedium.colorMatch();
+      expect(mastermindMedium.blackPeg).toEqual(1);
+      expect(mastermindMedium.whitePeg).toEqual(2);
     });
   });
 });

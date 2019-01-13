@@ -91,7 +91,7 @@ export class Mastermind {
   exactMatch() {
     for(let i = 0; i < 4; i++) {
       if(this.playerGuess[i] === this.masterCode[i]) {
-        this.blackPeg += 1;
+        this.blackPeg++;
         this.tempPlayerGuess.push("GuessMatch");
         this.tempMasterCode.push("MasterMatch");
       } else {
@@ -102,10 +102,10 @@ export class Mastermind {
   }
 
   colorMatch() {
-    for (let i = 0; i < this.tempPlayerGuess.length; i++) {
+    for (let i = 0; i < 4; i++) {
       if(this.tempMasterCode.includes(this.tempPlayerGuess[i])) {
-        this.whitePeg += 1;
-        this.tempMasterCode.splice(i,1,'colormatch');
+        this.whitePeg++;
+        this.tempMasterCode.splice(i,1,'ColorMatch');
       }
     }
   }
