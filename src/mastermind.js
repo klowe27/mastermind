@@ -1,4 +1,4 @@
-import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame } from './user-interface-logic.js'
+import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame, winCheckOnBoard } from './user-interface-logic.js'
 
 export class Mastermind {
   constructor(difficulty, rows = 11, seconds = 120, colorOptionNumber = 6){
@@ -62,8 +62,8 @@ export class Mastermind {
   submitGuess() {
     this.exactMatch();
     this.colorMatch();
-    this.winCheck();
     submitGuessOnBoard(this);
+    this.winCheck();
     this.endTurn();
   }
 
@@ -94,6 +94,7 @@ export class Mastermind {
         this.winStatus = false;
       }
     }
+    winCheckOnBoard(this);
   }
 
   exactMatch() {
@@ -113,7 +114,7 @@ export class Mastermind {
     for (let i = 0; i < 4; i++) {
       if(this.tempMasterCode.includes(this.tempPlayerGuess[i])) {
         this.whitePeg++;
-        this.tempMasterCode.splice(i,1,'ColorMatch');
+        this.tempPlayerGuess.splice(i,1,'ColorMatch');
       }
     }
   }

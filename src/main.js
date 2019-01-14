@@ -1,4 +1,4 @@
-import { createStars,  } from './user-interface-logic.js'
+import { createStars } from './user-interface-logic.js'
 import { Mastermind } from './mastermind.js'
 import './styles.css';
 import $ from 'jquery';
@@ -38,4 +38,5 @@ $(document).ready(function(){
   $('#info').hover(function(){
     $('#rules').toggle(300);
   });
+
 });
