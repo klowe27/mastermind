@@ -79,8 +79,8 @@ export function guessOnBoard(color, mastermind){
 
 export function clearGuessOnBoard(){
   $("button.colors").prop("disabled",false);
-  for (let i =0; i < 4; i ++){
-    $(`#stagingBoard-${i}`).css("background-color", "gray");
+  for (let i =1; i <= 4; i ++){
+    $(`#stagingBoard-${i}`).css("background-color", "#B8B8B8");
   }
   $("#cheat").css("color", "white");
 }
@@ -127,7 +127,7 @@ function disableGuess() {
 function winCheckOnBoard(mastermind) {
   if (mastermind.winStatus === true) {
     $('#win').show();
-  } else if (mastermind.winStatus == false) {
+  } else if (mastermind.winStatus === false) {
     $('#lose').show();
   }
 }
@@ -138,10 +138,10 @@ export function createStars() {
   for (let i = 0; i < 350; i++) {
     $('body').append(`<span class="star" style="left: ${randomNumber(width)}px; bottom: ${randomNumber(height)}px; background-color: rgb(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)});"></span>`);
   }
-  for (let i = 0; i < 1000; i++) {
+  setInterval(function(){
     $('.star:odd').fadeIn(4000).fadeOut(2000);
     $('.star:even').fadeOut(6000).fadeIn(3000);
-  }
+  }, 1000);
 }
 
 function randomNumber(max) {
