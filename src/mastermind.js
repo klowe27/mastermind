@@ -54,9 +54,10 @@ export class Mastermind {
   }
 
   guess(color) {
-    this.playerGuess.push(color);
-    guessOnBoard(color, this);
-
+    if (this.playerGuess.length < 4){
+      this.playerGuess.push(color);
+      guessOnBoard(color, this);
+    }
   }
 
   submitGuess() {

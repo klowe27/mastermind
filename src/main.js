@@ -6,7 +6,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function(){
-  createStars();
+  // createStars();
   $('#info').fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);
   let mastermind;
   $('.difficulty').on('click', 'button', function(){

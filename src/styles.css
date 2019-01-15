@@ -153,10 +153,10 @@ body h3 {
 }
 
 .emptyCircle {
-  margin: 5px;
+  margin: 7px;
   background-color: #B8B8B8;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 100%;
   display: inline-block;
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);

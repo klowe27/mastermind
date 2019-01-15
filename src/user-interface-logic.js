@@ -3,9 +3,6 @@ import $ from 'jquery';
 export function startGame(mastermind) {
   $(".difficulty").hide();
   $("h1").removeClass("marginTop");
-  // $('#buildRows').empty();
-  // $('#stagingBoard').empty();
-  // $('#colorGuess').empty();
   $("#cheat").css("color", "white");
   $("#game").slideDown(1500);
   setDifficulty(mastermind)
@@ -15,10 +12,7 @@ export function startGame(mastermind) {
 }
 
 function setDifficulty(mastermind) {
-  gameTimer(mastermind);
-  if (mastermind.difficulty === "easy" || mastermind.difficulty === "medium") {
-    $("#timer").hide();
-  } else {
+  if (mastermind.difficulty === "hard" || mastermind.difficulty === "custom") {
     gameTimer(mastermind);
   }
 }
@@ -63,26 +57,24 @@ function gameTimer(mastermind) {
     (mastermind.winStatus === true) ? clearInterval(gametimer) : null;
     if(seconds <= 0) {
       clearInterval(gametimer);
-      if (this.difficulty === "hard") {
-        $('#lose').show();
-        mastermind.winStatus = false;
-        $('#timer').text(0.00);
-      }
+      $('#lose').show();
+      mastermind.winStatus = false;
+      $('#timer').text(0.00);
     }
   }, 10);
 }
 
 export function guessOnBoard(color, mastermind){
   $(`#stagingBoard-${mastermind.playerGuess.length}`).css('background-color', color);
-  (mastermind.playerGuess.length > 4) ? disableGuess() : null;
+  (mastermind.playerGuess.length === 4) ? disableGuess() : null;
 }
 
 export function clearGuessOnBoard(){
-  $("button.colors").prop("disabled",false);
   for (let i =1; i <= 4; i ++){
     $(`#stagingBoard-${i}`).css("background-color", "#B8B8B8");
   }
   $("#cheat").css("color", "white");
+  enableGuess();
 }
 
 export function submitGuessOnBoard(mastermind){
@@ -92,6 +84,7 @@ export function submitGuessOnBoard(mastermind){
   clearStagingBoard();
   updatePegs(mastermind);
   winCheckOnBoard(mastermind)
+  enableGuess();
 }
 
 export function cheatOnBoard(mastermind) {
@@ -103,7 +96,7 @@ export function cheatOnBoard(mastermind) {
 
 function clearStagingBoard() {
   for (let i = 1; i <= 4; i ++){
-    $(`#stagingBoard-${i}`).css("background-color", "gray");
+    $(`#stagingBoard-${i}`).css("background-color", "#B8B8B8");
   }
 }
 
@@ -124,10 +117,14 @@ function disableGuess() {
   $("button.colors").prop("disabled",true);
 }
 
-function winCheckOnBoard(mastermind) {
+export function winCheckOnBoard(mastermind) {
   if (mastermind.winStatus === true) {
+    $('h1').hide();
+    $('#game').hide();
     $('#win').show();
   } else if (mastermind.winStatus === false) {
+    $('h1').hide();
+    $('#game').hide();
     $('#lose').show();
   }
 }
