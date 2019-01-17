@@ -1,10 +1,6 @@
-html {
-  /* height: 100%; */
-}
-
-body {
-  background-image: linear-gradient(#101010, #070721);
-  /* height: 100%; */
+html, body {
+  min-height: 100%;
+  background: linear-gradient(to left top, #101010, #070721) fixed;
 }
 
 body h1 {
@@ -48,7 +44,12 @@ body h3 {
 #game {
   display: none;
   opacity: .85;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
+}
+
+#buildRows {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #timer {
@@ -62,36 +63,36 @@ body h3 {
   margin-left: 23.5%;
   background-color: white;
   text-align: center;
-  padding: 40px;
-  border-radius: 10px;
-  width: 600px;
+  padding: 35px;
+  width: 525px;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
 #buttons{
   margin-top: 20px;
 }
 
-#red {
-  background-color: red;
+#color0 {
+  background-color: #ff2b18;
 }
 
-#green {
-  background-color: green;
+#color1 {
+  background-color: #50C878;
 }
-#blue {
-  background-color: blue;
-}
-
-#yellow {
-  background-color: yellow;
+#color2 {
+  background-color: #0080FF;
 }
 
-#purple {
-  background-color: purple;
+#color3 {
+  background-color: #ffff66;
 }
 
-#orange {
-  background-color: orange;
+#color4 {
+  background-color: #9B30FF;
+}
+
+#color5 {
+  background-color:	#ffb732;
 }
 
 .colors{
@@ -107,6 +108,7 @@ body h3 {
 }
 
 .gameButton {
+  font-family: 'Orbitron', sans-serif;
   display: inline-block;
   background-color: #ff6c37;
   font-size: 20px;
@@ -164,14 +166,14 @@ body h3 {
 }
 
 #pegResult {
-  display: inline-block;
-  margin-left: 20px;
-  margin-bottom: 5px;
+  margin: 8px 10px 8px 10px;
   background-color: #E0E0E0;
   opacity: .9;
-  padding: 3px;
+  padding: 5px;
   border-radius: 2px;
-  width: 80px;
+  width: 100;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .pegCircle {
@@ -179,7 +181,7 @@ body h3 {
   height: 12px;
   width: 12px;
   border-radius: 100%;
-  display: inline-block;
+  margin: 3px;
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
@@ -231,4 +233,10 @@ body h3 {
 
 #win {
   display: none;
+  position: absolute;
+  top: 45%;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 100px;
+  color: #F8F8F8;
+  text-align: center;
 }

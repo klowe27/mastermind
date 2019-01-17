@@ -5,7 +5,7 @@ export function startGame(mastermind) {
   $("h1").removeClass("marginTop");
   $("#cheat").css("color", "white");
   $("#game").slideDown(1500);
-  setDifficulty(mastermind)
+  setDifficulty(mastermind);
   buildColorButtons(mastermind);
   buildRows(mastermind);
   buildstagingBoard();
@@ -19,15 +19,15 @@ function setDifficulty(mastermind) {
 
 function buildRows(mastermind) {
   for (let i = mastermind.rows-1; i >= 0; i--) {
-    let htlmToInsert = `<div class='row'><div class='col-md-2'><div class='rowNumber'>${i+1}</div></div>`;
+    let htlmToInsert = `<div class='rowNumber'>${i+1}</div>`;
     for (let j = 0; j < 4; j++) {
       htlmToInsert += `<div id='${i}-${j}'class='emptyCircle'></div>`;
     }
-    htlmToInsert += `<div id='pegResult'><div class='col-md-1'>`
+    htlmToInsert += `<div id='pegResult'>`;
     for (let j = 0; j < 4; j++) {
       htlmToInsert += `<div id='peg${i}-${j}'class='pegCircle'></div>`;
     }
-    htlmToInsert+= `</div></div></div>`;
+    htlmToInsert+= `</div></div>`;
     $('#buildRows').append(htlmToInsert);
   }
 }
@@ -40,9 +40,9 @@ function buildstagingBoard() {
 
 function buildColorButtons(mastermind) {
   let htmlToInsert = "";
-  const colorArray = ["red", "green", "blue", "yellow", "purple", "orange"];
+  const colorArray = ["#FF8362", "#3CB371", "blue", "yellow", "purple", "orange"];
   for(let i = 0; i < mastermind.colorOptionNumber; i++) {
-    htmlToInsert += `<button type='button' class='colors' id='${colorArray[i]}' value='${colorArray[i]}'></button>`;
+    htmlToInsert += `<button type='button' class='colors' id='color${i}' value='${colorArray[i]}'></button>`;
   }
   $('#colorGuess').append(`<form id='buttons'>${htmlToInsert}</form>`);
 }
@@ -83,7 +83,7 @@ export function submitGuessOnBoard(mastermind){
   }
   clearStagingBoard();
   updatePegs(mastermind);
-  winCheckOnBoard(mastermind)
+  winCheckOnBoard(mastermind);
   enableGuess();
 }
 
@@ -110,7 +110,7 @@ function updatePegs(mastermind) {
 }
 
 function enableGuess() {
-  $("button.colors").prop("disabled",false)
+  $("button.colors").prop("disabled",false);
 }
 
 function disableGuess() {
@@ -142,5 +142,5 @@ export function createStars() {
 }
 
 function randomNumber(max) {
-  return Math.floor(Math.random()*max+1)
+  return Math.floor(Math.random()*max+1);
 }

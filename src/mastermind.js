@@ -1,4 +1,4 @@
-import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame, winCheckOnBoard } from './user-interface-logic.js'
+import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame, winCheckOnBoard } from './user-interface-logic.js';
 
 export class Mastermind {
   constructor(difficulty, rows = 11, seconds = 120, colorOptionNumber = 6){
@@ -18,7 +18,7 @@ export class Mastermind {
 
   masterCode() {
     const masterCodeArray = [];
-    const colorArray = ["red", "green", "blue", "yellow", "purple", "orange"];
+    const colorArray = ["#FF8362", "#3CB371", "blue", "yellow", "purple", "orange"];
     for (let i = 0; i < 4; i++) {
       let randomNumber = this.randomNumber(this.colorOptionNumber);
       masterCodeArray.push(colorArray[randomNumber]);
@@ -32,7 +32,7 @@ export class Mastermind {
         this.rows = 11;
         this.colorOptionNumber = 4;
         this.masterCode = [];
-        let shortColorArray = ["red", "green", "blue", "yellow"]
+        let shortColorArray = ["#FF8362", "#3CB371", "blue", "yellow"];
         let decreasingColorOptions = 4;
         for (let i = 0; i < this.colorOptionNumber; i++) {
           let randomNum = this.randomNumber(decreasingColorOptions);
@@ -42,7 +42,7 @@ export class Mastermind {
         }
         break;
       case "medium":
-        this.rows = 11
+        this.rows = 11;
         this.colorOptionNumber = 6;
         break;
       case "hard":

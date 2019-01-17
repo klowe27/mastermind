@@ -1,5 +1,5 @@
-import { createStars } from './user-interface-logic.js'
-import { Mastermind } from './mastermind.js'
+import { createStars } from './user-interface-logic.js';
+import { Mastermind } from './mastermind.js';
 import './styles.css';
 import $ from 'jquery';
 import 'bootstrap';
