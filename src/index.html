@@ -16,25 +16,26 @@
       </div>
 
       <div id="game">
-        <div class="gameBoard">
-
-          <div class="row">
-            <div class="col-md-10" id="buildRows"></div>
-            <div class="col-md-2">
-              <div class="row">
-                <div id="timer"></div>
-              </div>
-              <div class="row" class="button-picker" id="colorGuess">
-              </div>
+        <div class="row">
+          <div  id="masterBoard"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-10" id="buildRows"></div>
+          <div class="col-md-2">
+            <div class="row">
+              <div id="timer"></div>
+            </div>
+            <div class="row" class="button-picker" id="colorGuess">
             </div>
           </div>
+        </div>
 
-          <div class="row">
-              <div  id="stagingBoard"></div>
-              <button class="gameButton stagingButton" type="button" id="clearGuess">Clear</button>
-              <button class="gameButton stagingButton" type="button" id="submitGuess">Submit</button>
+        <div class="row staging">
+          <div  id="stagingBoard"></div>
+          <div class="stagingButtons">
+            <button class="gameButton stagingButton" type="button" id="submitGuess">Submit</button>
+            <button class="gameButton stagingButton clear" type="button" id="clearGuess">Clear</button>
           </div>
-
         </div>
       </div>
 
@@ -44,24 +45,17 @@
         <p>Once you have made your first guess, the pegs in the right hand box fill with one of 3 colors:</p>
         <ul>
           <li><strong>Gold Peg:</strong> You have an exact match (correct color and postion).</li>
-          <li><strong>White w/ Green Outline:</strong> You have a color match (color but not position).</li>
+          <li><strong>White Peg:</strong> You have a color match (color but not position).</li>
           <li><strong>Gray:</strong> Your guess is 100% wrong. Yikes.</li>
         </ul>
         <p><strong>Win:</strong> You guess the correct parttern before the turn limit.</p>
         <p><strong>Lose:</strong> You hit the guess limit before guessing the pattern correctly.</p>
       </div>
 
-      <div id="alert">
-        <p>Select 4 colors to submit.</p>
-      </div>
-
-      <div id="win">Congratulations!</div>
-
-      <div id="lose">I'm sorry, you lose.</div>
-
-      <div id="info">
-        <h3>?</h3>
-      </div>
+      <p id="alert">Select 4 colors to submit.</p>
+      <h4 id="win">Congratulations!<button type="button" class="gameButton playAgain">Play Again</button></h4>
+      <h4 id="lose">You lose.<br><button type="button" class="gameButton playAgain">Play Again</button></h4>
+      <div id="info"><h3>?</h3></div>
 
     </div>
   </body>
