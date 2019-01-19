@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 export function startGame(mastermind) {
   $(".difficulty").hide();
+  $('#masterBoard').hide();
   $("h1").removeClass("marginTop");
   $("#cheat").css("color", "white");
   $("#game").slideDown(1500);
@@ -9,6 +10,7 @@ export function startGame(mastermind) {
   buildColorButtons(mastermind);
   buildRows(mastermind);
   buildstagingBoard();
+  buildMasterBoard(mastermind);
 }
 
 function setDifficulty(mastermind) {
@@ -38,9 +40,16 @@ function buildstagingBoard() {
   }
 }
 
+function buildMasterBoard(mastermind) {
+  for (let i = 0; i < mastermind.masterCode.length; i++) {
+    $('#masterBoard').append(`<div id="masterBoard-${i}"class="emptyCircle"></div>`);
+    $(`#masterBoard-${i}`).css("background-color", `${mastermind.masterCode[i]}`);
+  }
+}
+
 function buildColorButtons(mastermind) {
   let htmlToInsert = "";
-  const colorArray = ["#FF8362", "#3CB371", "blue", "yellow", "purple", "orange"];
+  const colorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66", "#9B30FF", "#FFB732"];
   for(let i = 0; i < mastermind.colorOptionNumber; i++) {
     htmlToInsert += `<button type='button' class='colors' id='color${i}' value='${colorArray[i]}'></button>`;
   }
@@ -118,8 +127,10 @@ function disableGuess() {
 }
 
 export function winCheckOnBoard(mastermind) {
+
   if (mastermind.winStatus === true) {
     $('h1').hide();
+    $('#masterBoard').slideUp();
     $('#game').hide();
     $('#win').show();
   } else if (mastermind.winStatus === false) {
@@ -132,9 +143,11 @@ export function winCheckOnBoard(mastermind) {
 export function createStars() {
   const height = $(window).height();
   const width = $(window).width();
+  let stars = "";
   for (let i = 0; i < 350; i++) {
-    $('body').append(`<span class="star" style="left: ${randomNumber(width)}px; bottom: ${randomNumber(height)}px; background-color: rgb(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)});"></span>`);
+    stars += `<span class="star" style="left: ${randomNumber(width)}px; bottom: ${randomNumber(height)}px; background-color: rgb(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)});"></span>`;
   }
+  $('body').append(stars);
   setInterval(function(){
     $('.star:odd').fadeIn(4000).fadeOut(2000);
     $('.star:even').fadeOut(6000).fadeIn(3000);

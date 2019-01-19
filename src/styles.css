@@ -1,9 +1,9 @@
-html, body {
+body {
   min-height: 100%;
   background: linear-gradient(to left top, #101010, #070721) fixed;
 }
 
-body h1 {
+h1 {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-size: 90px;
@@ -11,20 +11,20 @@ body h1 {
   margin-bottom: 15px;
 }
 
-body h2 {
+h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 25px;
 }
 
-body h3 {
-  color: 	gray;
+h3 {
+  color: gray;
   font-size: 30px;
 }
 
 .star {
   display: none;
   position: fixed;
-  z-index: -1;
+  z-index: -5;
   height: 5px;
   width: 5px;
   border-radius: 5px;
@@ -41,12 +41,6 @@ body h3 {
   font-family: 'Orbitron', sans-serif;
 }
 
-#game {
-  display: none;
-  opacity: .85;
-  margin-bottom: 75px;
-}
-
 #buildRows {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -59,13 +53,14 @@ body h3 {
   text-align: left;
 }
 
-.gameBoard {
-  margin-left: 23.5%;
-  background-color: white;
-  text-align: center;
+#game {
+  display: none;
+  margin: 0 auto;
+  margin-bottom: 75px;
+  background-color: rgba(255,255,255,.6);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
   padding: 35px;
   width: 525px;
-  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
 #buttons{
@@ -73,7 +68,7 @@ body h3 {
 }
 
 #color0 {
-  background-color: #ff2b18;
+  background-color: #FF2B18;
 }
 
 #color1 {
@@ -84,7 +79,7 @@ body h3 {
 }
 
 #color3 {
-  background-color: #ffff66;
+  background-color: #FFFF66;
 }
 
 #color4 {
@@ -92,10 +87,10 @@ body h3 {
 }
 
 #color5 {
-  background-color:	#ffb732;
+  background-color:	#FFB732;
 }
 
-.colors{
+.colors {
   margin-top: 10px;
   height: 50px;
   width: 50px;
@@ -110,7 +105,7 @@ body h3 {
 .gameButton {
   font-family: 'Orbitron', sans-serif;
   display: inline-block;
-  background-color: #ff6c37;
+  background-color: #CBA72D;
   font-size: 20px;
   color: white;
   border: none;
@@ -128,35 +123,55 @@ body h3 {
 .rowNumber {
   display: inline-block;
   font-family: 'Orbitron', sans-serif;
-  color: #A9A9A9;
+  color: white;
   font-size: 25px;
   margin-top: 17px;
 }
 
-#stagingBoard {
+.staging {
   margin-top: 20px;
-  background-color: #E0E0E0;
-  opacity: .8;
-  padding: 20px;
-  border-radius: 10px;
+}
+
+#stagingBoard {
+  margin-left: 60px;
+  background-color: rgba(255,255,255,.5);
+  padding: 17px;
+  border-radius: 5px;
 }
 
 .stagingButton {
-  width: 95px;
-  font-size: 20px;
+  width: 90px;
+  font-size: 15px;
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
-  margin-top: 20px;
-  margin-left: 20px;
-  padding: 3px;
+  margin-left: 25px;
+  padding: 6px 0px 6px 0px;
+  text-align: center;
 }
 
 .stagingButton:hover {
   box-shadow: 0 5px 15px rgba(145, 92, 182, .8);
 }
 
+#masterBoard {
+  margin-left: 60px;
+  margin-bottom: 20px;
+  background-color: rgba(255,255,255,.5);
+  padding: 17px;
+  border-radius: 5px;
+}
+
+.clear {
+  background-color: gray;
+}
+
+.stagingButtons {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .emptyCircle {
   margin: 7px;
-  background-color: #B8B8B8;
+  background-color: gray;
   height: 45px;
   width: 45px;
   border-radius: 100%;
@@ -166,8 +181,8 @@ body h3 {
 }
 
 #pegResult {
-  margin: 8px 10px 8px 10px;
-  background-color: #E0E0E0;
+  margin: 6px 10px 14px 15px;
+  background-color: rgba(255,255,255,.5);
   opacity: .9;
   padding: 5px;
   border-radius: 2px;
@@ -186,13 +201,11 @@ body h3 {
 }
 
 .whitePeg {
-  border: 3px solid #00FF00;
   background-color: white;
 }
 
-
 .blackPeg {
-  background-color: #FFD700;
+  background-color: #CBA72D;
 }
 
 #alert {
@@ -229,14 +242,18 @@ body h3 {
 
 #lose {
   display: none;
+  margin-top: 30%;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 100px;
+  color: #F8F8F8;
 }
 
 #win {
   display: none;
-  position: absolute;
-  top: 45%;
+  margin-top: 30%;
+  text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-size: 100px;
   color: #F8F8F8;
-  text-align: center;
 }
