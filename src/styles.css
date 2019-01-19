@@ -134,7 +134,7 @@ h3 {
 
 #stagingBoard {
   margin-left: 60px;
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.4);
   padding: 17px;
   border-radius: 5px;
 }
@@ -182,7 +182,7 @@ h3 {
 
 #pegResult {
   margin: 6px 10px 14px 15px;
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.4);
   opacity: .9;
   padding: 5px;
   border-radius: 2px;
@@ -192,7 +192,7 @@ h3 {
 }
 
 .pegCircle {
-  background-color: #B8B8B8;
+  background-color: #A8A8A8;
   height: 12px;
   width: 12px;
   border-radius: 100%;

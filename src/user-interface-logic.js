@@ -105,7 +105,7 @@ export function cheatOnBoard(mastermind) {
 
 function clearStagingBoard() {
   for (let i = 1; i <= 4; i ++){
-    $(`#stagingBoard-${i}`).css("background-color", "#B8B8B8");
+    $(`#stagingBoard-${i}`).css("background-color", "gray");
   }
 }
 
