@@ -18,7 +18,7 @@ export class Mastermind {
 
   masterCode() {
     const masterCodeArray = [];
-    const colorArray = ["#FF8362", "#3CB371", "blue", "yellow", "purple", "orange"];
+    const colorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66", "#9B30FF", "#FFB732"];
     for (let i = 0; i < 4; i++) {
       let randomNumber = this.randomNumber(this.colorOptionNumber);
       masterCodeArray.push(colorArray[randomNumber]);
@@ -32,7 +32,7 @@ export class Mastermind {
         this.rows = 11;
         this.colorOptionNumber = 4;
         this.masterCode = [];
-        let shortColorArray = ["#FF8362", "#3CB371", "blue", "yellow"];
+        let shortColorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66"];
         let decreasingColorOptions = 4;
         for (let i = 0; i < this.colorOptionNumber; i++) {
           let randomNum = this.randomNumber(decreasingColorOptions);
@@ -91,7 +91,7 @@ export class Mastermind {
     if (this.blackPeg === 4){
       this.winStatus = true;
     } else {
-      if (this.currentTurn === this.rows) {
+      if (this.currentTurn === this.rows-1) {
         this.winStatus = false;
       }
     }
