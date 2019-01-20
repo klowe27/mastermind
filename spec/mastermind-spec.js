@@ -21,7 +21,7 @@ describe('Mastermind', function() {
       expect(mastermindEasy.playerGuess).toEqual([]);
       expect(mastermindEasy.tempPlayerGuess).toEqual([]);
       expect(mastermindEasy.tempMasterCode).toEqual([]);
-      expect(mastermindEasy.blackPeg).toEqual(0);
+      expect(mastermindEasy.goldPeg).toEqual(0);
       expect(mastermindEasy.whitePeg).toEqual(0);
       expect(mastermindEasy.currentTurn).toEqual(0);
       expect(mastermindEasy.winStatus).toEqual("");
@@ -77,7 +77,7 @@ describe('Mastermind', function() {
       expect(mastermindMedium.playerGuess).toEqual([]);
       expect(mastermindMedium.tempPlayerGuess).toEqual([]);
       expect(mastermindMedium.tempMasterCode).toEqual([]);
-      expect(mastermindMedium.blackPeg).toEqual(0);
+      expect(mastermindMedium.goldPeg).toEqual(0);
       expect(mastermindMedium.whitePeg).toEqual(0);
       expect(mastermindMedium.currentTurn).toEqual(1);
     });
@@ -85,11 +85,11 @@ describe('Mastermind', function() {
 
   describe('winCheck', function() {
     it('should check if a user has won or lost', function() {
-      mastermindMedium.blackPeg = 4;
+      mastermindMedium.goldPeg = 4;
       mastermindMedium.winCheck();
       expect(mastermindMedium.winStatus).toEqual(true);
 
-      mastermindMedium.blackPeg = 0;
+      mastermindMedium.goldPeg = 0;
       mastermindMedium.currentTurn = 11;
       mastermindMedium.winCheck();
       expect(mastermindMedium.winStatus).toEqual(false);
@@ -102,7 +102,7 @@ describe('Mastermind', function() {
       mastermindMedium.masterCode = ["green", "purple", "purple", "red"];
       mastermindMedium.exactMatch();
       mastermindMedium.colorMatch();
-      expect(mastermindMedium.blackPeg).toEqual(1);
+      expect(mastermindMedium.goldPeg).toEqual(1);
       expect(mastermindMedium.whitePeg).toEqual(2);
     });
   });
