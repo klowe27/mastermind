@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 export function startGame(mastermind) {
   $(".difficulty").hide();
-  $('#masterBoard').hide();
   $("h1").removeClass("marginTop");
   $("#cheat").css("color", "white");
   $("#game").slideDown(1500);
@@ -49,9 +48,8 @@ function buildMasterBoard(mastermind) {
 
 function buildColorButtons(mastermind) {
   let htmlToInsert = "";
-  const colorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66", "#9B30FF", "#FFB732"];
-  for(let i = 0; i < mastermind.colorOptionNumber; i++) {
-    htmlToInsert += `<button type='button' class='colors' id='color${i}' value='${colorArray[i]}'></button>`;
+  for(let i = 0; i < mastermind.colorOptions.length; i++) {
+    htmlToInsert += `<button type='button' class='colors' id='color${i}' value='${mastermind.colorOptions[i]}'></button>`;
   }
   $('#colorGuess').append(`<form id='buttons'>${htmlToInsert}</form>`);
 }
@@ -62,13 +60,13 @@ function gameTimer(mastermind) {
   let gametimer = setInterval(function() {
     seconds -= .01;
     $("#timer").text(seconds.toFixed(1));
-    (seconds < 60) ? $("#timer").css("color", "red") : null;
+    (seconds < 60) ? $("#timer").css("color", "#FF2B18") : null;
     (mastermind.winStatus === true) ? clearInterval(gametimer) : null;
     if(seconds <= 0) {
       clearInterval(gametimer);
-      $('#lose').show();
       mastermind.winStatus = false;
       $('#timer').text(0.00);
+      winCheckOnBoard(mastermind);
     }
   }, 10);
 }
@@ -110,10 +108,10 @@ function clearStagingBoard() {
 }
 
 function updatePegs(mastermind) {
-  for (let i = 0; i < mastermind.blackPeg; i++){
-    $(`#peg${mastermind.currentTurn}-${i}`).addClass("blackPeg");
+  for (let i = 0; i < mastermind.goldPeg; i++){
+    $(`#peg${mastermind.currentTurn}-${i}`).addClass("goldPeg");
   }
-  for (let i = mastermind.blackPeg; i < mastermind.whitePeg + mastermind.blackPeg; i ++) {
+  for (let i = mastermind.goldPeg; i < mastermind.whitePeg + mastermind.goldPeg; i ++) {
     $(`#peg${mastermind.currentTurn}-${i}`).addClass("whitePeg");
   }
 }
@@ -127,16 +125,21 @@ function disableGuess() {
 }
 
 export function winCheckOnBoard(mastermind) {
-
-  if (mastermind.winStatus === true) {
-    $('h1').hide();
-    $('#masterBoard').slideUp();
-    $('#game').hide();
-    $('#win').show();
-  } else if (mastermind.winStatus === false) {
-    $('h1').hide();
-    $('#game').hide();
-    $('#lose').show();
+  if (mastermind.winStatus === true || mastermind.winStatus === false) {
+    $('#masterBoard').slideDown(2000);
+    setTimeout(function(){
+      $('h1').slideUp(1500);
+      $('#game').slideUp(3000);
+    }, 6000);
+    if (mastermind.winStatus === true) {
+      setTimeout(function(){
+        $('#win').show();
+      }, 9000);
+    } else if (mastermind.winStatus === false) {
+      setTimeout(function(){
+        $('#lose').show();
+      }, 9000);
+    }
   }
 }
 

@@ -48,7 +48,7 @@ h3 {
 
 #timer {
   font-family: 'Orbitron', sans-serif;
-  color: 	#A9A9A9;
+  color: white;
   font-size: 25px;
   text-align: left;
 }
@@ -135,7 +135,7 @@ h3 {
 #stagingBoard {
   margin-left: 60px;
   background-color: rgba(255,255,255,.4);
-  padding: 17px;
+  padding: 20px 17px 15px 17px;
   border-radius: 5px;
 }
 
@@ -153,10 +153,11 @@ h3 {
 }
 
 #masterBoard {
+  display: none;
   margin-left: 60px;
   margin-bottom: 20px;
   background-color: rgba(255,255,255,.5);
-  padding: 17px;
+  padding: 20px 17px 15px 17px;
   border-radius: 5px;
 }
 
@@ -204,7 +205,7 @@ h3 {
   background-color: white;
 }
 
-.blackPeg {
+.goldPeg {
   background-color: #CBA72D;
 }
 
