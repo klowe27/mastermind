@@ -8,7 +8,7 @@
 
 This app recreates the board game Mastermind. In this game, the user tries to guess a code made up of four colors (randomly generated from a pool of six colors). For each guess, the game generates gold and white pegs to indicate how close the user's guess is, allowing the user to refine their guess. The game is over when the user wins by correctly guessing the code or loses by running out of turns before guessing the code.
 
-This app was originally created as a group project at Epicodus. A few months after the group project was complete, I applied new skills I had acquired and completely refactored the code to separate concerns, made it modular, added testing and redesigned the UI.
+This app was originally created as a group project at Epicodus. A few months after the group project was complete, I applied new skills I had acquired and completely refactored the code to separate concerns, use Webpack, make it modular, add testing and redesign the UI.
 
 <img src="img/sample1.png" alt="home screen">
 
