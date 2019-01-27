@@ -9,6 +9,7 @@ $(document).ready(function(){
   createStars();
   $('#info').fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);
   let mastermind;
+
   $('.difficulty').on('click', 'button', function(){
     const difficulty = this.id;
     mastermind = new Mastermind(difficulty);

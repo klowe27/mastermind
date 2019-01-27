@@ -20,23 +20,25 @@ function setDifficulty(mastermind) {
 
 function buildRows(mastermind) {
   for (let i = mastermind.rows-1; i >= 0; i--) {
-    let htlmToInsert = `<div class='rowNumber'>${i+1}</div>`;
+    let rows = `<div class='rowNumber'>${i+1}</div>`;
     for (let j = 0; j < 4; j++) {
-      htlmToInsert += `<div id='${i}-${j}'class='emptyCircle'></div>`;
+      rows += `<div id='${i}-${j}'class='emptyCircle'></div>`;
     }
-    htlmToInsert += `<div id='pegResult'>`;
+    rows += `<div id='pegResult'>`;
     for (let j = 0; j < 4; j++) {
-      htlmToInsert += `<div id='peg${i}-${j}'class='pegCircle'></div>`;
+      rows += `<div id='peg${i}-${j}'class='pegCircle'></div>`;
     }
-    htlmToInsert+= `</div></div>`;
-    $('#buildRows').append(htlmToInsert);
+    rows += `</div></div>`;
+    $('#buildRows').append(rows);
   }
 }
 
 function buildstagingBoard() {
+  let stagingBoard = "";
   for (let i = 1; i <=4; i++) {
-    $('#stagingBoard').append(`<div id="stagingBoard-${i}"class="emptyCircle"></div>`);
+    stagingBoard += `<div id="stagingBoard-${i}"class="emptyCircle"></div>`;
   }
+  $('#stagingBoard').append(stagingBoard);
 }
 
 function buildMasterBoard(mastermind) {
@@ -47,11 +49,11 @@ function buildMasterBoard(mastermind) {
 }
 
 function buildColorButtons(mastermind) {
-  let htmlToInsert = "";
+  let colorButtons = "";
   for(let i = 0; i < mastermind.colorOptions.length; i++) {
-    htmlToInsert += `<button type='button' class='colors' id='color${i}' value='${mastermind.colorOptions[i]}'></button>`;
+    colorButtons += `<button type='button' class='colors' id='color${i}' value='${mastermind.colorOptions[i]}'></button>`;
   }
-  $('#colorGuess').append(`<form id='buttons'>${htmlToInsert}</form>`);
+  $('#colorGuess').append(`<form id='buttons'>${colorButtons}</form>`);
 }
 
 function gameTimer(mastermind) {
@@ -78,7 +80,7 @@ export function guessOnBoard(color, mastermind){
 
 export function clearGuessOnBoard(){
   for (let i =1; i <= 4; i ++){
-    $(`#stagingBoard-${i}`).css("background-color", "#B8B8B8");
+    $(`#stagingBoard-${i}`).css("background-color", "gray");
   }
   $("#cheat").css("color", "white");
   enableGuess();
@@ -130,15 +132,15 @@ export function winCheckOnBoard(mastermind) {
     setTimeout(function(){
       $('h1').slideUp(1500);
       $('#game').slideUp(3000);
-    }, 6000);
+    }, 7000);
     if (mastermind.winStatus === true) {
       setTimeout(function(){
-        $('#win').show();
-      }, 9000);
+        $('#win').fadeIn(2000);
+      }, 10000);
     } else if (mastermind.winStatus === false) {
       setTimeout(function(){
-        $('#lose').show();
-      }, 9000);
+        $('#lose').fadeIn(2000);
+      }, 10000);
     }
   }
 }

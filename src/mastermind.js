@@ -1,54 +1,51 @@
 import { submitGuessOnBoard, cheatOnBoard, clearGuessOnBoard, guessOnBoard, startGame, winCheckOnBoard } from './user-interface-logic.js';
 
 export class Mastermind {
-  constructor(difficulty, rows = 11, seconds = 120, colorOptionNumber = 6){
+  constructor(difficulty){
     this.difficulty = difficulty;
-    this.rows = rows;
-    this.seconds = seconds;
-    this.colorOptionNumber = colorOptionNumber;
+    this.rows = 0;
+    this.seconds = 0;
+    this.colorOptions = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66", "#9B30FF", "#FFB732"];
     this.masterCode = this.masterCode();
     this.playerGuess = [];
     this.tempPlayerGuess = [];
     this.tempMasterCode = [];
-    this.blackPeg = 0;
+    this.goldPeg = 0;
     this.whitePeg = 0;
     this.currentTurn = 0;
     this.winStatus = "";
   }
 
   masterCode() {
-    const masterCodeArray = [];
-    const colorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66", "#9B30FF", "#FFB732"];
+    let code = [];
     for (let i = 0; i < 4; i++) {
-      let randomNumber = this.randomNumber(this.colorOptionNumber);
-      masterCodeArray.push(colorArray[randomNumber]);
+      let randomNumber = this.randomNumber(this.colorOptions.length);
+      code.push(this.colorOptions[randomNumber]);
     }
-    return (masterCodeArray);
+    return code;
   }
 
   setDifficulty() {
     switch (this.difficulty) {
-      case "easy":
-        this.rows = 11;
-        this.colorOptionNumber = 4;
-        this.masterCode = [];
-        let shortColorArray = ["#FF2B18", "#50C878", "#0080FF", "#FFFF66"];
-        let decreasingColorOptions = 4;
-        for (let i = 0; i < this.colorOptionNumber; i++) {
-          let randomNum = this.randomNumber(decreasingColorOptions);
-          this.masterCode.push(shortColorArray[randomNum]);
-          shortColorArray.splice(randomNum,1);
-          decreasingColorOptions -= 1;
-        }
-        break;
-      case "medium":
-        this.rows = 11;
-        this.colorOptionNumber = 6;
-        break;
-      case "hard":
-        this.rows = 7;
-        this.colorOptionNumber = 6;
-        break;
+    case "easy":
+      this.rows = 11;
+      this.colorOptions.length = 4;
+      this.masterCode = this.colorOptions;
+      for (let i = 0; i < 4; i++) {
+        let randomNum = this.randomNumber(this.masterCode.length);
+        let randomNum2 = this.randomNumber(this.masterCode.length);
+        let x = this.masterCode[randomNum];
+        this.masterCode[randomNum] = this.masterCode[randomNum2];
+        this.masterCode[randomNum2] = x;
+      }
+      break;
+    case "medium":
+      this.rows = 11;
+      break;
+    case "hard":
+      this.rows = 7;
+      this.seconds = 120;
+      break;
     }
     startGame(this);
   }
@@ -82,18 +79,16 @@ export class Mastermind {
     this.playerGuess = [];
     this.tempPlayerGuess = [];
     this.tempMasterCode = [];
-    this.blackPeg = 0;
+    this.goldPeg = 0;
     this.whitePeg = 0;
     this.currentTurn++;
   }
 
   winCheck() {
-    if (this.blackPeg === 4){
+    if (this.goldPeg === 4){
       this.winStatus = true;
-    } else {
-      if (this.currentTurn === this.rows-1) {
-        this.winStatus = false;
-      }
+    } else if (this.currentTurn === (this.rows-1)) {
+      this.winStatus = false;
     }
     winCheckOnBoard(this);
   }
@@ -101,7 +96,7 @@ export class Mastermind {
   exactMatch() {
     for(let i = 0; i < 4; i++) {
       if(this.playerGuess[i] === this.masterCode[i]) {
-        this.blackPeg++;
+        this.goldPeg++;
         this.tempPlayerGuess.push("GuessMatch");
         this.tempMasterCode.push("MasterMatch");
       } else {
@@ -115,7 +110,8 @@ export class Mastermind {
     for (let i = 0; i < 4; i++) {
       if(this.tempMasterCode.includes(this.tempPlayerGuess[i])) {
         this.whitePeg++;
-        this.tempPlayerGuess.splice(i,1,'ColorMatch');
+        let index = this.tempMasterCode.indexOf(this.tempPlayerGuess[i]);
+        this.tempMasterCode.splice(index,1,'ColorMatch');
       }
     }
   }
