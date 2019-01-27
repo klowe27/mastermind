@@ -16,8 +16,7 @@ This app was originally created as a group project at Epicodus. A few months aft
 
 ## Setup/Installation Instructions
 
-* View directly at: https://klowe27.github.io/mastermind/
-* Or, in the command line, clone this repository with $ git clone https://github.com/klowe27/mastermind
+* In the command line, clone this repository with $ git clone https://github.com/klowe27/mastermind
 * Navigate into the directory and use command $ npm install
 * To open the application in Chrome, use command $ npm run start
 * To run the test suite, use command $ npm test
