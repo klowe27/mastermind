@@ -14,9 +14,9 @@ describe('Mastermind', function() {
   describe('constructor', function() {
     it('should create a new instance of Mastermind and save all properties', function() {
       expect(mastermindEasy.difficulty).toEqual("easy");
-      expect(mastermindEasy.rows).toEqual(11);
-      expect(mastermindEasy.seconds).toEqual(120);
-      expect(mastermindEasy.colorOptionNumber).toEqual(6);
+      expect(mastermindEasy.rows).toEqual(0);
+      expect(mastermindEasy.seconds).toEqual(0);
+      expect(mastermindEasy.colorOptions.length).toEqual(6);
       expect(mastermindEasy.masterCode.length).toEqual(4);
       expect(mastermindEasy.playerGuess).toEqual([]);
       expect(mastermindEasy.tempPlayerGuess).toEqual([]);
@@ -30,18 +30,15 @@ describe('Mastermind', function() {
 
   describe('setDifficulty', function() {
     it('should update a player\'s properties based on difficulty', function() {
-      mastermindEasy.setDifficulty();
-      expect(mastermindEasy.colorOptionNumber).toEqual(4);
-
       mastermindMedium.setDifficulty();
       expect(mastermindMedium.difficulty).toEqual("medium");
       expect(mastermindMedium.rows).toEqual(11);
-      expect(mastermindMedium.colorOptionNumber).toEqual(6);
+      expect(mastermindMedium.colorOptions.length).toEqual(6);
 
       mastermindHard.setDifficulty();
       expect(mastermindHard.difficulty).toEqual("hard");
       expect(mastermindHard.rows).toEqual(7);
-      expect(mastermindHard.colorOptionNumber).toEqual(6);
+      expect(mastermindHard.colorOptions.length).toEqual(6);
     });
   });
 
@@ -90,7 +87,9 @@ describe('Mastermind', function() {
       expect(mastermindMedium.winStatus).toEqual(true);
 
       mastermindMedium.goldPeg = 0;
-      mastermindMedium.currentTurn = 11;
+      mastermindMedium.winStatus = null;
+      mastermindMedium.rows = 11;
+      mastermindMedium.currentTurn = 10;
       mastermindMedium.winCheck();
       expect(mastermindMedium.winStatus).toEqual(false);
     });
