@@ -51,13 +51,12 @@ function buildMasterBoard(mastermind) {
 function buildColorButtons(mastermind) {
   let colorButtons = "";
   for(let i = 0; i < mastermind.colorOptions.length; i++) {
-    colorButtons += `<button type='button' class='colors' id='color${i}' value='${mastermind.colorOptions[i]}'></button>`;
+    colorButtons += `<button type='button' class='colors' value='${mastermind.colorOptions[i]}' style="background-color: ${mastermind.colorOptions[i]}"></button>`;
   }
   $('#colorGuess').append(`<form id='buttons'>${colorButtons}</form>`);
 }
 
 function gameTimer(mastermind) {
-  $('#timer').css("color", "#A9A9A9");
   let seconds = mastermind.seconds;
   let gametimer = setInterval(function() {
     seconds -= .01;
@@ -130,17 +129,17 @@ export function winCheckOnBoard(mastermind) {
   if (mastermind.winStatus === true || mastermind.winStatus === false) {
     $('#masterBoard').slideDown(2000);
     setTimeout(function(){
-      $('h1').slideUp(1500);
+      $('h1').slideUp(1000);
       $('#game').slideUp(3000);
-    }, 7000);
+    }, 4000);
     if (mastermind.winStatus === true) {
       setTimeout(function(){
         $('#win').fadeIn(2000);
-      }, 10000);
+      }, 5000);
     } else if (mastermind.winStatus === false) {
       setTimeout(function(){
         $('#lose').fadeIn(2000);
-      }, 10000);
+      }, 5000);
     }
   }
 }

@@ -30,14 +30,16 @@ export class Mastermind {
     case "easy":
       this.rows = 11;
       this.colorOptions.length = 4;
-      this.masterCode = this.colorOptions;
+      this.masterCode = this.colorOptions.slice();
+      console.log(this.masterCode);
       for (let i = 0; i < 4; i++) {
-        let randomNum = this.randomNumber(this.masterCode.length);
-        let randomNum2 = this.randomNumber(this.masterCode.length);
+        let randomNum = this.randomNumber(4);
+        let randomNum2 = this.randomNumber(4);
         let x = this.masterCode[randomNum];
         this.masterCode[randomNum] = this.masterCode[randomNum2];
         this.masterCode[randomNum2] = x;
       }
+
       break;
     case "medium":
       this.rows = 11;
