@@ -4,7 +4,7 @@ export function startGame(mastermind) {
   $(".difficulty").hide();
   $("h1").removeClass("marginTop");
   $("#cheat").css("color", "white");
-  $("#game").slideDown(1500);
+  $("#game").slideDown();
   setDifficulty(mastermind);
   buildColorButtons(mastermind);
   buildRows(mastermind);
