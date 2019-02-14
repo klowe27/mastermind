@@ -23,16 +23,6 @@ module.exports = {
     })
   ],
   module: {
-    {
-      test: /\.(png|gif|jp(e*)g|svg)$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 8000,
-          name: 'images/[hash]-[name].[ext]'
-        }
-      }
-    },
     rules: [
       {
         test: /\.css$/,
@@ -40,6 +30,16 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.(png|gif|jp(e*)g|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8000,
+            name: 'images/[hash]-[name].[ext]'
+          }
+        }
       },
       {
         test: /\.js$/,
