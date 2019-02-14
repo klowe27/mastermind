@@ -10,11 +10,12 @@ This app recreates the board game Mastermind. In this game, the user tries to gu
 
 This app was originally created as a group project at Epicodus. A few months after the group project was complete, I applied new skills I had acquired and completely refactored the code to separate concerns, use Webpack, make it modular, add testing and redesign the UI.
 
-<img src="images/sample1.png" alt="home screen">
 
-<img src="images/sample2.png" alt="game">
+<img src="https://drive.google.com/file/d/1yWuG35Bp9FvD95N2z_hHySDuDfc7ecXT/view?usp=sharing" alt="home screen">
 
-<img src="images/Mastermind.gif" alt="demo">
+<img src="https://drive.google.com/file/d/1Yhyfn8MSXk40nmTh0vTaycgeeRrJtQZH/view?usp=sharing" alt="game">
+
+<img src="https://drive.google.com/file/d/1OsxYD9EdIM9_DVitEpajYZp48CiMeawi/view?usp=sharing" alt="demo">
 
 
 ## Setup/Installation Instructions
