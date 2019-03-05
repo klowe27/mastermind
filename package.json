@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "build": "webpack --mode development",
-    "build-prod": "webpack -p",
+    "build": "webpack -p",
     "start": "npm run build; webpack-dev-server --open --mode development",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
     "watch": "webpack --watch",
     "lint": "eslint src/*.js"
   },
