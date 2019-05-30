@@ -20,7 +20,8 @@ This app was originally created as a group project at Epicodus. A few months aft
 
 ## Setup/Installation Instructions
 
-* In the command line, clone this repository with `git clone https://github.com/klowe27/mastermind`
+* View directly: https://dry-castle-29629.herokuapp.com/
+* To run locally, in the command line clone this repository with `git clone https://github.com/klowe27/mastermind`
 * Navigate into the directory and use command `npm install`
 * To open the application in Chrome, use command `npm run dev`
 * To run the test suite, use command `npm test`
