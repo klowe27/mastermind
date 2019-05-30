@@ -22,7 +22,7 @@ This app was originally created as a group project at Epicodus. A few months aft
 
 * In the command line, clone this repository with `git clone https://github.com/klowe27/mastermind`
 * Navigate into the directory and use command `npm install`
-* To open the application in Chrome, use command `npm run start`
+* To open the application in Chrome, use command `npm run dev`
 * To run the test suite, use command `npm test`
 
 ## Known Bugs
